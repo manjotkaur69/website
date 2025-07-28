@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Care Path</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+ :root {
+            --primary: #2a7f62;
+            --primary-light: #3cb087;
+            --primary-dark: #1e5d47;
+            --secondary: #f8b400;
+            --dark: #333333;
+            --light: #f9f9f9;
+            --gray: #e0e0e0;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            text-transform: capitalize;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 20px 0;
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-dark);
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(transparent, var(--light));
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+       /* New Store Section Styles */
+.store {
+    background-color: var(--white);
+}
+
+.store-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.store-img {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+.store-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.store-img:hover img {
+    transform: scale(1.05);
+}
+
+.store-content {
+    flex: 1;
+}
+
+.store-features {
+    margin-top: 30px;
+}
+
+.store-feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.store-feature-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-light);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+}
+/* Earning Opportunity Section Styles */
+.earning-opportunity {
+    background-color: var(--white);
+}
+
+.plans-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.plan-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background-color: var(--light);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.plan-card.highlight {
+    background-color: var(--primary-light);
+    color: var(--white);
+    border: 2px solid var(--secondary);
+}
+
+.plan-card.highlight h3 {
+    color: var(--white);
+}
+
+.plan-card.highlight .plan-features li {
+    color: var(--white);
+}
+
+.plan-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.5rem;
+}
+
+.plan-card.highlight .plan-icon {
+    background-color: var(--secondary);
+    color: var(--primary-dark);
+}
+
+.plan-content h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-dark);
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+}
+
+.plan-features li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 30px;
+    color: var(--dark);
+}
+
+.plan-features i {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    color: var(--secondary);
+}
+
+.plan-card.highlight .plan-features i {
+    color: var(--white);
+}
+
+.highlight-text {
+    font-weight: 600;
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .plans-container {
+        flex-direction: column;
+    }
+    
+    .plan-card {
+        max-width: 100%;
+    }
+}
+/* Youth Empowerment Section Styles */
+.youth-empowerment {
+    background-color: var(--light);
+}
+
+.empowerment-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.empowerment-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+.empowerment-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.empowerment-image:hover img {
+    transform: scale(1.05);
+}
+
+.empowerment-content {
+    flex: 1;
+}
+
+.empowerment-features {
+    margin: 30px 0;
+}
+
+.empowerment-feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.empowerment-feature-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-light);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+}
+
+.empowerment-cta {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(42, 127, 98, 0.1);
+    border-radius: 10px;
+}
+
+.empowerment-cta .btn {
+    margin-top: 15px;
+}
+
+@media (max-width: 992px) {
+    .empowerment-container {
+        flex-direction: column;
+    }
+    
+    .empowerment-image {
+        order: -1;
+        width: 100%;
+    }
+}
+/* Why Choose Section Styles */
+.why-choose {
+    background-color: var(--white);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.benefit-card {
+    background-color: var(--light);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(42, 127, 98, 0.1);
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-light);
+}
+
+.benefit-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    background-color: var(--primary-light);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.benefit-card:hover .benefit-icon {
+    background-color: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+.benefit-card h3 {
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.benefit-card p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .benefit-card {
+        padding: 20px;
+    }
+}
+/* Product Verification Section Styles */
+.product-verification {
+    background-color: var(--light);
+}
+
+.verification-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.verification-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+.verification-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.verification-image:hover img {
+    transform: scale(1.05);
+}
+
+.verification-content {
+    flex: 1;
+}
+
+.verification-features {
+    margin: 30px 0;
+}
+
+.verification-feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.verification-feature-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-light);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+}
+
+.verification-cta {
+    background-color: rgba(42, 127, 98, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary);
+}
+
+.verification-cta .btn {
+    margin-top: 15px;
+}
+
+@media (max-width: 992px) {
+    .verification-container {
+        flex-direction: column;
+    }
+    
+    .verification-image {
+        order: -1;
+        width: 100%;
+    }
+}
+/* Natural Path CTA Section Styles */
+.natural-path-cta {
+    background: linear-gradient(135deg, rgba(42, 127, 98, 0.1) 0%, rgba(248, 180, 0, 0.1) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.natural-path-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%232a7f62" fill-opacity="0.05" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+    background-size: 300px 300px;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.cta-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-content {
+    flex: 1;
+}
+
+.cta-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+.cta-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.cta-image:hover img {
+    transform: scale(1.05);
+}
+
+.cta-highlight {
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    font-weight: 600;
+    margin: 20px 0;
+    padding-left: 20px;
+    border-left: 4px solid var(--secondary);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+    min-width: 180px;
+}
+
+@media (max-width: 992px) {
+    .cta-container {
+        flex-direction: column;
+    }
+    
+    .cta-image {
+        order: -1;
+        width: 100%;
+    }
+    
+    .cta-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .about-features {
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-light);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .products {
+            background-color: var(--light);
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .product-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .categories {
+            background-color: var(--white);
+        }
+
+        .categories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .category-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            padding: 30px 20px;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-light);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .category-card:hover .category-icon {
+            background-color: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .category-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        .category-info p {
+            color: #666;
+        }
+
+        .why-us {
+            background-color: var(--light);
+        }
+
+        .why-us-container {
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+
+        .why-us-item {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .why-us-item h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .why-us-item h3 i {
+            margin-right: 15px;
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+
+        .why-us-item p {
+            color: #555;
+            padding-left: 40px;
+        }
+
+        .order {
+            background: linear-gradient(rgba(42, 127, 98, 0.9), rgba(42, 127, 98, 0.9)), url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1913&q=80') no-repeat center center/cover;
+            color: var(--white);
+        }
+
+        .order-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .order-content {
+            flex: 1;
+        }
+
+        .order-content h2 {
+            color: var(--white);
+        }
+
+        .order-content p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .order-form {
+            flex: 1;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(42, 127, 98, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* New Store Section Styles */
+        .store {
+            background-color: var(--white);
+        }
+
+        .store-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .store-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .store-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .store-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .store-content {
+            flex: 1;
+        }
+
+        .store-features {
+            margin-top: 30px;
+        }
+
+        .store-feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .store-feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-light);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 30px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background-color: var(--secondary);
+            color: var(--primary-dark);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .about-container,
+            .order-container,
+            .store-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1000;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .btn {
+                padding: 10px 25px;
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .order-form {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 50px 0;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .products-container,
+            .categories-container {
+                grid-template-columns: 1fr;
+            }
+
+            .why-us-item {
+                padding: 30px 20px;
+            }
+        }
+        .footer-contact a {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            color: var(--white);
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-contact a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+
+        .footer-contact i {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">Natural<span>Care</span></a>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="index.html#criteria">Criteria</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="joinus.html" class="active">Join Us</a></li>
+                </ul>
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Natural Care Path – A Revolutionary Gateway to Natural Health & Income Opportunity</h1>
+            <p class="hero-subtitle" style="width: 100%;">In today’s fast-paced, chemically-driven world, finding a 100% natural health solution is nothing short of a blessing. Natural Care Path is not just a brand; it's a movement of wellness and entrepreneurship. Rooted in India's rich natural resources, this company offers a wide spectrum of health-linked products that are made entirely from herbal and organic ingredients.
+From immunity boosters to daily wellness supplements, Natural Care Path ensures zero side effects, full safety, and visible results. Our mission? To heal, to empower, and to provide a sustainable lifestyle for everyone — regardless of age, background, or occupation.</p>
+        </div>
+    </section>
+
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-img">
+                    <img src="join.png" alt="Natural Care Path Team">
+                </div>
+                <div class="about-content">
+                
+                    <h2 class="section-title">Why Join Natural Care Path?</h2>
+                    <p>At Natural Care Path, our entire product line is developed using purely natural resources from India. Each item is formulated by experts, tested under strict quality parameters, and verified to be free from side effects.</p>
+                    <p>we focus on addressing everyday healt concerns like Immunity enhancement, Joint pain relief, Skin and hair care, Detoxification,Weight management, Diabetes and blood pressure control, Health Care, Classical, Beauty Care, Womens Care Babycare, Skin Care, FMCG Personalcare, FMCG HomeCare, Agriculture, Veterinary, Business Tools, Promotional, Personal.</p>
+                    <p>Each of our products is manufactured under GMP-certified facilities, ensuring premium quality and hygiene. We also encourage customers to get products tested independently, reinforcing our transparency and trustworthiness.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h3>100% Natural Products</h3>
+                                <p>Our entire product line is developed using purely natural resources from India.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <div>
+                                <h3>Income Opportunity</h3>
+                                <p>Zero investment required to start earning with our flexible business model.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<div class="store-content">
+                
+                    <h2 class="section-title">Buy Directly From Our Chandigarh Store</h2>
+                    <p>Residents of Chandigarh and nearby areas can walk into our official Natural Care Path Store to explore and purchase products. Our team of trained health advisors will guide you to the best solution for your concerns.</p>
+                    <div class="store-features">
+                        <div class="store-feature-item">
+                            <div class="store-feature-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div>
+                                <h3>Real-time product consultation</h3>
+                                <p>Get personalized advice from our health experts in-store</p>
+                            </div>
+                        </div>
+                        <div class="store-feature-item">
+                            <div class="store-feature-icon">
+                                <i class="fas fa-box-open"></i>
+                            </div>
+                            <div>
+                                <h3>Immediate product availability</h3>
+                                <p>Take home your purchases the same day</p>
+                            </div>
+                        </div>
+                        <div class="store-feature-item">
+                            <div class="store-feature-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div>
+                                <h3>Free health guidance sessions</h3>
+                                <p>Learn how to improve your wellness naturally</p>
+                            </div>
+                        </div>
+                        <div class="store-feature-item">
+                            <div class="store-feature-icon">
+                                <i class="fas fa-tags"></i>
+                            </div>
+                            <div>
+                                <h3>Exclusive in-store offers</h3>
+                                <p>Special discounts and promotions only available at our physical store</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px;">Whether you're shopping for yourself, your parents, or children, you'll find natural alternatives that are safe, affordable, and effective.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section earning-opportunity" id="opportunity">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title">🚀 Join as a Seller & Start Earning Today</h2>
+            <p class="section-subtitle">We are not just selling products — we are building a community of passionate wellness entrepreneurs. With Natural Care Path, you have a unique opportunity to contribute to our mission and earn an income by promoting health and well-being.</p>
+        </div>
+        <div class="plans-container">
+            <div class="plan-card">
+                <div class="plan-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <div class="plan-content">
+                    <h3>Plan 1: Direct Buyer</h3>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Simply walk into our store, explore products, and become a loyal customer</li>
+                        <li><i class="fas fa-check"></i> Benefit from organic health solutions</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plan-card highlight">
+                <div class="plan-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="plan-content">
+                    <h3>Plan 2: Become a Seller (No Investment Needed!)</h3>
+                    <p> If you're a college student, a housewife, a retired professional, or a job seeker, this plan is your golden opportunity. Use your communication and networking skills to sell our certified health products and earn attractive commissions.</p><br>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> No joining fee</li>
+                        <li><i class="fas fa-check"></i> No advance payment</li>
+                        <li><i class="fas fa-check"></i> Free workshops and training sessions</li>
+                        <li><i class="fas fa-check"></i> Learn sales skills, product knowledge, and marketing strategies</li>
+                        <li><i class="fas fa-check"></i> Sell online or offline — your choice</li>
+                        <li><i class="fas fa-check"></i> Flexible hours & full support from our Chandigarh team</li>
+                    </ul>
+                    <p class="highlight-text">This initiative is a game-changer for youth empowerment, offering a genuine way to develop entrepreneurial skills while making a real impact in the healthcare space.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <section class="section youth-empowerment" id="youth">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">🎓 Youth & Student Empowerment Initiative</h2>
+                <p>In a time when job markets are saturated and opportunities are scarce, Natural Care Path stands as a beacon of empowerment for young people and college students. With zero investment, anyone can step into the world of natural health marketing and earn based on their efforts and communication skills.</p>
+            </div>
+            <div class="empowerment-container">
+                <div class="empowerment-content">
+                    <p>We run regular training programs, webinars, and in-person workshops to help you build:</p>
+                    <div class="empowerment-features">
+                        <div class="empowerment-feature-item">
+                            <div class="empowerment-feature-icon">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                            <div>
+                                <h3>Sales confidence</h3>
+                                <p>Develop the ability to present and sell products effectively</p>
+                            </div>
+                        </div>
+                        <div class="empowerment-feature-item">
+                            <div class="empowerment-feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h3>Health product knowledge</h3>
+                                <p>Learn about natural remedies and their benefits</p>
+                            </div>
+                        </div>
+                        <div class="empowerment-feature-item">
+                            <div class="empowerment-feature-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div>
+                                <h3>Digital and offline marketing skills</h3>
+                                <p>Master both online and traditional marketing techniques</p>
+                            </div>
+                        </div>
+                        <div class="empowerment-feature-item">
+                            <div class="empowerment-feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h3>Leadership and entrepreneurship mindset</h3>
+                                <p>Cultivate the skills to build and lead your own team</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="empowerment-cta">
+                        <p>This is more than just a job — it's your chance to start your own journey with zero financial risk and unlimited potential.</p>
+                        <a href="joinus.html#join-form" class="btn btn-primary">Join Now</a>
+                    </div>
+                </div>
+                <div class="empowerment-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Empowered Youth">
+                </div>
+            </div>
+        </div>
+    </section>
+        <section class="section why-choose" id="products">
+        <div class="container">
+            <div class="text-center">
+        
+                <h2 class="section-title">🌍 Why Choose Natural Care Path?</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>100% Natural & Herbal Ingredients</h3>
+                    
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Made in India with Global Standards</h3>
+                  
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <h3>No Chemicals – No Side Effects</h3>
+                 
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Scientifically Tested & Certified</h3>
+                    
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Open Income Opportunities for Everyone</h3>
+              
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>No Joining Fee – Pure Skill-Based Model</h3>
+                  
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Dedicated Support for Sellers</h3>
+                    
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Walk-in Store for Local Buyers</h3>
+                   
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Trustworthy Brand With Strong Customer Base</h3>
+                 
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section products" id="criteria">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Who Can Join Natural Care Path?</h2>
+                <h2 class="section-subtitle" style="font-family: Arial, Helvetica, sans-serif;">Anyone over the age of 18 is welcome to join Natural Care Path. You don't need any experience, just the desire to grow and help others stay healthy—no registration charges. No deposits. Just your time, learning spirit, and commitment. Whether you're:</h2>
+            </div>
+            <div class="products-container">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Students">
+                    </div>
+                    <div class="product-content">
+                        <h3>A college Students</h3>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                       <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80" alt="Professionals">
+                    </div>
+                    <div class="product-content">
+                        <h3>A housewife looking for flexible work</h3>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://static.toiimg.com/thumb/msid-50958466,imgsize-137673,width-400,resizemode-4/50958466.jpg" alt="Professionals">
+                    </div>
+                    <div class="product-content">
+                        <h3>A health enthusiast</h3>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="data:image/jpeg;base64,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" alt="Retirees">
+                    </div>
+                    <div class="product-content">
+                        <h3>A retired individual seeking engagement</h3>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Health Enthusiasts">
+                    </div>
+                    <div class="product-content">
+                        <h3>A part-time job seeker</h3>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section product-verification" id="verification">
+        <div class="container">
+            <div class="verification-container">
+                <div class="verification-image">
+                    <img src="data:image/jpeg;base64,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" alt="Lab Testing">
+                </div>
+                <div class="verification-content">
+
+                    <h2 class="section-title">🧪 All Products Tested & Verified</h2>
+                    <p>Transparency is at the heart of Natural Care Path. Every product we sell has been:</p>
+                    <div class="verification-features">
+                        <div class="verification-feature-item">
+                            <div class="verification-feature-icon">
+                                <i class="fas fa-microscope"></i>
+                            </div>
+                            <div>
+                                <h3>Lab-tested for purity</h3>
+                             
+                            </div>
+                        </div>
+                        <div class="verification-feature-item">
+                            <div class="verification-feature-icon">
+                                <i class="fas fa-file-medical"></i>
+                            </div>
+                            <div>
+                                <h3>Clinically reviewed</h3>
+                                
+                            </div>
+                        </div>
+                        <div class="verification-feature-item">
+                            <div class="verification-feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h3>Consumer-tested for satisfaction</h3>
+                             
+                            </div>
+                        </div>
+                        <div class="verification-feature-item">
+                            <div class="verification-feature-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h3>Certified under ISO & GMP standards</h3>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="verification-cta">
+                        <p>We believe in letting our results speak for themselves. Customers are welcome to test the products through independent laboratories or with the guidance of medical professionals. Our confidence lies in our pure formulations and the positive results they deliver.</p>
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section natural-path-cta" id="cta">
+        <div class="container">
+            <div class="cta-container">
+                <div class="cta-content">
+                    
+                    <h2 class="section-title">📣 Take the Natural Path to Health & Income</h2>
+                    <p>Now is the time to take control of your health and your future. With Natural Care Path, you not only receive the best of Indian herbal science, but also unlock the door to personal growth and financial freedom. Join us — Buy, Promote, Earn, and Grow. For product queries, training schedules, or joining as a seller, visit our Chandigarh store today and take your first step towards a natural and independent future.
+</p>        
+                </div>
+                <div class="cta-image">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Natural Lifestyle">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Natural Care Path</h3>
+                    <p>A movement of wellness and entrepreneurship offering 100% natural health solutions and income opportunities.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/naturalcurepath"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/naturalcurepath?referrer=fblite_ig_fb_profile_coredefault_no_experiment.ig_web&utm_campaign=fblite_ig_fb_profile_core"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#products">Products</a></li>
+                        <li><a href="index.html#criteria">Criteria</a></li>
+                        <li><a href="joinus.html">Join Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <a href="tel:+99154 97501">
+                                <span>+91 99154 97501</span>
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </li>
+                        <li>
+                             <a href="mailto:naturalcurepath42@gmail.com">
+                                <span>naturalcurepath42@gmail.com</span>
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://maps.google.com" target="_blank">
+                                <span>Natural Care Path Store, Chandigarh</span>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+    <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+            ? '<i class="fas fa-times"></i>' 
+            : '<i class="fas fa-bars"></i>';
+    });
+
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('header');
+        header.classList.toggle('scrolled', window.scrollY > 50);
+        
+        const backToTop = document.getElementById('backToTop');
+        backToTop.classList.toggle('active', window.scrollY > 300);
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if(this.getAttribute('href') === '#') return;
+            
+            const target = document.querySelector(this.getAttribute('href'));
+            if(target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                if(navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            }
+        });
+    });
+
+    const sellerForm = document.getElementById('sellerForm');
+    if(sellerForm) {
+        sellerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const city = document.getElementById('city').value;
+            const interest = document.getElementById('interest').value;
+            const message = document.getElementById('message').value;
+            
+            // Create WhatsApp message
+            const whatsappMessage = `New Join Request:%0A%0A` +
+                                   `*Name:* ${name}%0A` +
+                                   `*Email:* ${email}%0A` +
+                                   `*Phone:* ${phone}%0A` +
+                                   `*City:* ${city}%0A` +
+                                   `*Interest:* ${interest}%0A` +
+                                   `*Message:* ${message}`;
+            
+            // Create WhatsApp URL
+            const whatsappUrl = `https://wa.me/919915497501?text=${whatsappMessage}`;
+            
+            // Open WhatsApp in a new tab
+            window.open(whatsappUrl, '_blank');
+            
+            // Show confirmation and reset form
+            alert('Thank you for your interest! Please complete the process on WhatsApp.');
+            sellerForm.reset();
+        });
+    }
+</script>
+</body>
+</html>
