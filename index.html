@@ -1361,11 +1361,11 @@
     <li><a href="index.html#contact">Contact</a></li>
     <li><a href="joinus.html" class="active">Join Us</a></li>
     <!-- Add this close button -->
-    <li class="mobile-close-btn">
-        <a href="javascript:void(0)" id="mobileCloseBtn">
-            <i class="fas fa-times"></i> Close Menu
-        </a>
-    </li>
+  <li class="mobile-close-btn">
+    <a href="javascript:void(0)" id="mobileCloseBtn">
+        <i class="fas fa-times"></i> Close Menu
+    </a>
+</li>
 </ul>
                 <div class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
@@ -1879,6 +1879,12 @@ if(sellerForm) {
         alert('Thank you for your interest! Please complete the process on WhatsApp.');
         sellerForm.reset();
     });
+
+    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+mobileCloseBtn.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+});
 }
 </script>
 </body>
